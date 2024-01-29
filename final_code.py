@@ -300,7 +300,7 @@ elif st.session_state.page == 'output':
 
 # Add a section with the developers' information at the bottom of the page
 st.markdown("---")
-st.header("Developed by:")     
+st.header("Developers:")     
 
 # Add the profiles as individual cards
 row1, row2 = st.columns([1, 1])
