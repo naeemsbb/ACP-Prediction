@@ -320,7 +320,7 @@ with row2:
  #st.image("colleague-photo.jpg", width=100)
  st.write("")
  st.write("### Arslan Hamid")
- st.write("Email: ahamid@uni_bonn.de")
+ st.write("Email: ahamid@uni-bonn.de")
 
 #row3[0].image("teacher-photo.jpg", width=100)
 row3[0].write("")
