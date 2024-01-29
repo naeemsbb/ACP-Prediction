@@ -56,7 +56,7 @@ def main():
     # Add university logos to the page
     left_logo, center, right_logo = st.columns([1, 2, 1])
     left_logo.image("PU.png", width=280)
-    right_logo.image("LOGO.png", width=280)
+    right_logo.image("LOGO_u.png", width=280)
 
     # Add header with application title and description
     with center:
