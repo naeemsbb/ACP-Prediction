@@ -222,17 +222,22 @@ if 'page' not in st.session_state:
 if 'submit_count' not in st.session_state:
         st.session_state.submit_count = 0
 # Page 1: Input
+st.title("Protein Sequence Submission")
+
+if 'page' not in st.session_state:
+    st.session_state.page = 'input'
+if 'submit_count' not in st.session_state:
+        st.session_state.submit_count = 0
+# Page 1: Input
 if st.session_state.page == 'input':
     st.subheader("Enter Protein Sequences")
     protein_sequences = st.text_area("Protein Sequences (Enter multiple sequences separated by new lines)", height=150)
     fasta_file = st.file_uploader("Or upload FASTA file", type=["fasta", "txt"])
 
     submit_button = st.button("Submit")
-    
-    if submit_button:
-            st.session_state.submit_count += 1
-            st.info(f"Submit button pressed. Please press again if not processed")
 
+    if submit_button:
+        st.session_state.submit_count += 1
 
     if fasta_file:
         fasta_content = fasta_file.getvalue().decode("utf-8").splitlines()
@@ -241,14 +246,24 @@ if st.session_state.page == 'input':
 
     if submit_button:
         if protein_sequences:
-            st.session_state.protein_sequences = protein_sequences.split('\n') if isinstance(protein_sequences, str) else protein_sequences
-            y_pred, prediction_probability = predict_peptide_structure(st.session_state.protein_sequences)
-            st.session_state.prediction = y_pred
-            st.session_state.prediction_probability = prediction_probability
-            st.session_state.page = 'output'
+            sequences_list = protein_sequences.split('\n') if isinstance(protein_sequences, str) else protein_sequences
+            valid_sequences = []
+            for seq in sequences_list:
+                try:
+                    if is_valid_sequence(seq):
+                        valid_sequences.append(seq)
+                except ValueError as e:
+                    st.error(str(e))
+                    break
+
+            if valid_sequences:
+                st.session_state.protein_sequences = valid_sequences
+                y_pred, prediction_probability = predict_peptide_structure(st.session_state.protein_sequences)
+                st.session_state.prediction = y_pred
+                st.session_state.prediction_probability = prediction_probability
+                st.session_state.page = 'output'
         else:
             st.warning("Please enter protein sequences or upload a file.")
-
 
 # Page 2: Output (including prediction results)
 elif st.session_state.page == 'output':
