@@ -112,9 +112,9 @@ def sep(input):
             return df_in
 def is_valid_sequence(sequence):
     valid_amino_acids = 'ACDEFGHIKLMNPQRSTVWY'
-    return sequence and all(char.upper() in valid_amino_acids for char in sequence)
-
-
+    if not sequence or not all(char.upper() in valid_amino_acids for char in sequence):
+        raise ValueError("You have entered an invalid sequence. Please check your input.")
+    return True
 
 def update(sequence_list):
     pdb_strings = []
