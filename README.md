@@ -19,13 +19,13 @@ Users can input peptide sequences directly or upload them in FASTA format. The a
 
 Technologies Used
 
-Streamlit for the web interface
-Pandas and Numpy for data handling
-Joblib for model loading
-Sklearn for the Random Forest Classifier
-Pfeature for feature extraction
-Py3Dmol and stmol for 3D molecular visualization
-BioPython for sequence processing
+Streamlit for the web interface,
+Pandas and Numpy for data handling,
+Joblib for model loading,
+Sklearn for the Random Forest Classifier,
+Pfeature for feature extraction,
+Py3Dmol and stmol for 3D molecular visualization,
+BioPython for sequence processing.
 
 Getting Started
 
