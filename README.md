@@ -39,6 +39,6 @@ Contact
 
 For inquiries, feedback, or support, please contact:
 
-Dr. Naeem Mahmood Ashraf (Naeem.sbb@pu.edu.pk)
-Arslan Hamid (ahamid@uni-bonn.de)
+Dr. Naeem Mahmood Ashraf (Naeem.sbb@pu.edu.pk),
+Arslan Hamid (ahamid@uni-bonn.de),
 Kashaf Azam (kashafazam09@gmail.com)
